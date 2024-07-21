@@ -1,0 +1,23 @@
+[
+  {
+    "fName": "admin fName",
+    "lName": "admin lName",
+    "email": "admin@iti.com",
+    "password": "1234",
+    "role": "admin"
+  },
+  {
+    "fName": "seller1 fName",
+    "lName": "seller1 lName",
+    "email": "seller1@iti.com",
+    "password": "1234",
+    "role": "seller"
+  },
+  {
+    "fName": "customer1 fName",
+    "lName": "customer1 lName",
+    "email": "customer1@iti.com",
+    "password": "1234",
+    "role": "customer"
+  }
+]

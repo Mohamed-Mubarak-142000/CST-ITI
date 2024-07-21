@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../bootstrap/bootstrap.css" />
+  <link rel="stylesheet" href="./log.css" />
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="formContainer d-flex align-items-center flex-column justify-content-center direction-column">
+    <a class="w-50 d-flex align-items-center justify-content-center" href="../home/home.html" target="_blank">
+      <img class="w-100" src="../Assets/logo.svg" alt="" />
+    </a>
+    <div>
+      <form class="row needs-validation container mx-auto h-100" novalidate>
+        <span
+          class="NotFounUser d-flex align-items-center justify-content-center visible hiddeElement fs-4 text-danger">
+
+        </span>
+        <div class="col-12 mx-auto">
+          <label for="validationCustomUseremail" class="form-label">Email</label>
+          <div class="input-group has-validation">
+            <input type="email" class="form-control" id="validationCustomUseremail" placeholder="Email Address"
+              aria-describedby="inputGroupPrepend" required />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please write Valid Email.</div>
+          </div>
+        </div>
+
+        <div class="col-12 mx-auto">
+          <label for="validationCustomPassword" class="form-label">Password</label>
+
+          <input placeholder="User Password" minlength="6" maxlength="16" type="password" class="form-control"
+            id="validationCustomPassword" required />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Password must be between 6-16 Charachter.</div>
+        </div>
+
+        <div class="col-12 text-center">
+          <button class="btn bg-mainColor text-white" type="submit">
+            Login
+          </button>
+        </div>
+        <div class="col-12 text-center d-flex align-items-center justify-content-center">
+          <span> Don't have account?</span>
+          <button class="btn btn-link creatAcc">Create account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="./login.js" type="module"></script>
+  <script src="../bootstrap/bootstrap.bundle.js"></script>
+</body>
+
+</html>

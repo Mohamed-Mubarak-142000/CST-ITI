@@ -1,0 +1,515 @@
+/* Reset some basic elements */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.stock-out-message {
+  z-index: 1000;
+  /* قيمة مخصصة عالية لضمان الظهور فوق العناصر الأخرى */
+}
+
+/* Cart counter styling */
+.counter {
+  position: absolute;
+  top: -20px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+/* Basic styling for product cards */
+.card {
+  position: relative;
+  border: none;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  transition: transform 0.5s;
+}
+
+.card img {
+  object-fit: contain;
+  padding-bottom: 10px;
+}
+
+.card p {
+  margin: 10px 0;
+  color: #302f2f;
+  font-weight: 800;
+}
+
+.card h4 {
+  margin: 5px 0;
+  color: #403f3f;
+  font-weight: normal;
+}
+
+/* Hover effect for product cards */
+.card:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); */
+}
+
+.fav_option {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  display: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.card:hover .fav_option {
+  display: flex;
+}
+
+.one_option {
+  transition: all 0.5s;
+}
+
+.one_option:hover {
+  transform: scale(1.2);
+}
+
+.heading {
+  position: relative;
+  margin: 2rem auto;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  border-bottom: 2px solid #e2dfdf;
+  text-transform: uppercase;
+}
+
+.heading > div:first-of-type {
+  position: absolute;
+  top: 0px;
+  left: 70%;
+  width: 70px;
+  height: 12px;
+  transform: rotate(-17deg);
+  border-radius: 10px 25px 10px 10px;
+  background-color: rgba(224, 13, 94, 0.608);
+}
+
+.heading > div:nth-child(2) {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width: 70px;
+  height: 12px;
+  transform: rotate(-17deg);
+  border-radius: 10px 25px 10px 10px;
+  background-color: rgba(13, 207, 224, 0.608);
+}
+
+.heading > div:nth-child(3) {
+  position: absolute;
+  top: 0px;
+  left: 30%;
+  width: 70px;
+  height: 12px;
+  transform: rotate(-19deg);
+  border-radius: 10px 25px 10px 10px;
+  background-color: rgba(224, 13, 94, 0.608);
+}
+
+.heading > div:last-of-type {
+  position: absolute;
+  top: 2px;
+  left: 10%;
+  width: 70px;
+  height: 12px;
+  transform: rotate(-20deg);
+  border-radius: 10px 25px 10px 10px;
+  background-color: rgba(13, 207, 224, 0.608);
+}
+
+.cardCat {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.5s;
+  height: 100%;
+  /* Let Bootstrap handle the height */
+}
+
+.contentInfo {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.contentInfo > h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.contentInfo > a {
+  width: max-content;
+  padding: 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: all 0.5s;
+}
+
+.contentInfo > a:hover {
+  color: black;
+  background-color: rgb(13, 206, 224) !important;
+}
+
+/* Footer container styling */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-brand {
+  flex: 1;
+  margin: 20px 0;
+}
+
+.footer-brand .brand-logo {
+  max-width: 150px;
+}
+
+.footer-links,
+.footer-social {
+  flex: 1;
+  margin: 20px 0;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin: 10px 0;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #ffd700;
+  /* Gold color on hover */
+}
+
+.footer-social .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-social .social-icons a {
+  color: #fff;
+  font-size: 1.5em;
+  transition: color 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+  color: #ffd700;
+  /* Gold color on hover */
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #bbb;
+}
+
+.footer-bottom p {
+  margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-social {
+    margin: 10px 0;
+  }
+}
+
+/****************brannnnnnnnnnnnnnnnnnnnnnnnd */
+/* Brands Section Styling */
+.brands-section {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ececec68;
+  /* Light background for contrast */
+}
+
+.brands-section .row {
+  align-items: center;
+}
+
+.brand-image {
+  width: 100%;
+  max-height: 100px;
+  /* Ensuring consistent height */
+  object-fit: contain;
+  /* Maintain aspect ratio */
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* Smooth hover effects */
+}
+
+.brand-image:hover {
+  transform: scale(1.05);
+  /* Slight zoom on hover */
+}
+
+.show_all_cats {
+  display: flex !important;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff3cd !important;
+  position: absolute;
+  top: 110%;
+  border-radius: 10px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding-top: 10px;
+  animation: animateList 0.5s ease-in-out forwards;
+}
+
+.cat_link {
+  margin-left: 10px;
+  transition: 0.3s;
+  border-radius: 10px;
+  text-decoration: none;
+  padding-left: 20px;
+}
+
+.cat_link:hover {
+  text-decoration: none;
+  padding: 4px;
+
+  color: white;
+  background-color: black !important;
+}
+
+.show_all_cats > div {
+  padding: 5px 10px;
+  transition: all 0.5s;
+}
+
+.show_all_cats > div > a {
+  text-decoration: none;
+}
+
+.show_all_cats > div:hover {
+  background-color: #ffd900b0;
+}
+
+#btn_all_categories {
+  cursor: pointer;
+  background-color: #cfe2ff !important;
+}
+
+@keyframes animateList {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+
+  to {
+    height: 400px;
+    opacity: 1;
+  }
+}
+
+.show_content_search {
+  width: 100%;
+  min-height: fit-content;
+  max-height: 350px;
+  overflow-y: auto;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  z-index: 10000;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: start;
+  gap: 5px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 5px 2px 5px #6d6d6d;
+}
+
+.oneSearch {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+  transition: all 0.5s;
+  font-size: 14px;
+}
+
+.oneSearch h5 {
+  font-size: 16px !important;
+  font-weight: bold;
+}
+
+.oneSearch:hover {
+  background-color: #e2dfdf;
+  cursor: pointer;
+}
+
+.heartFill {
+  color: red !important;
+}
+
+.heartEmpty {
+  color: rgb(40, 40, 40) !important;
+}
+
+#wLProducts,
+#cartCount {
+  font-size: 20px;
+  color: red !important;
+  cursor: pointer;
+  position: relative;
+}
+
+.divCount {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+  position: absolute;
+  top: -14px;
+  left: -5px;
+  color: black;
+  font-weight: bold;
+  background-color: gold;
+}
+/****************************************** */
+@keyframes slideInTop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutTop {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutBottom {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.slide-in-top {
+  animation: slideInTop 0.5s forwards;
+}
+
+.slide-out-top {
+  animation: slideOutTop 0.5s forwards;
+}
+
+.slide-in-bottom {
+  animation: slideInBottom 0.5s forwards;
+}
+
+.slide-out-bottom {
+  animation: slideOutBottom 0.5s forwards;
+}
+
+.card {
+  opacity: 0; /* Start with opacity 0 */
+}
+/***************************************** */

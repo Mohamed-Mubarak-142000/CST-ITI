@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="../../fontawesome/all.css">
+  <title>Compains</title>
+  <style>
+    main {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    #sidebar {
+      min-width: 250px;
+      max-width: 250px;
+      background-color: #607d8b;
+      color: #fff;
+      transition: all 0.3s;
+    }
+
+    #sidebar.active {
+      margin-left: -250px;
+    }
+
+    #sidebar .nav-link {
+      color: #fff;
+    }
+
+    #content {
+      width: 100%;
+      transition: all 0.3s;
+    }
+
+    tr,
+    td {
+      padding: 4px;
+      text-align: center;
+      border: 1px solid white;
+    }
+
+    summary {
+      list-style: none;
+    }
+
+    .show {
+      position: absolute;
+      top: 20px;
+      right: 5px;
+      cursor: pointer;
+    }
+
+    .hide {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: -45px;
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    aside .active {
+      background-color: black;
+      color: gray;
+    }
+
+    .logo {
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    .line-clamp-description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .adminLinks #Logout {
+      margin-top: 8rem;
+
+    }
+
+    .adminLinks #Logout .active {
+      background-color: white;
+      color: black !important;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .adminLinks #Logout .active:hover {
+      background-color: red !important;
+      color: white !important;
+    }
+
+    #complains-holder details {
+      color: white;
+      background-color: #607d8b !important;
+    }
+
+    #complains-holder div:nth-child(2) {
+      /* background-color: indianred; */
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <main>
+    <!--  Navbar content -->
+    <aside id="sidebar" class="position-relative">
+      <div class="sidebar-header p-3 mt-4">
+        <a href="../../home/home.html" target="_blank">
+          <img src="../../assets/logo.svg" class="logo" alt="logo">
+        </a>
+
+        <h3>Dashboard</h3>
+        <button id="menu-toggle-hide" class="btn btn-light show">&#9776;</button>
+        <button id="menu-toggle-show" class="btn btn-dark hide">&#9776;</button>
+      </div>
+      <ul class="nav flex-column adminLinks">
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Home" href="../statistics/statistics.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Products" href="../products/products.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Users" href="../users/users.html">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Orders" href="../orders/orders.html">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Offers" href="../offers/offers.html">Offers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Review" href="../review/review.html">Review</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75 active" id="Complains" href="../emails/emials.html">Complains</a>
+        </li>
+        <li class="nav-item" id="Logout">
+          <div class="nav-link  ms-3 rounded-3 w-75 active">
+            <i class="fa-solid fa-right-from-bracket" style="transform: rotate(180deg);"></i>
+            <h5>Logout</h5>
+          </div>
+        </li>
+        <li class="nav-item" id="DeleteMyAccount">
+          <button class="btn btn-danger mt-5 ms-3 rounded-3 w-75">Delete My Account</button>
+        </li>
+      </ul>
+
+    </aside>
+    <!-- Main page content -->
+    <div id="content" class="container">
+      <h1 class="text-center my-5">Complains from customers</h1>
+      <div id="complains-holder" class="d-flex justify-content-center flex-wrap gap-2"></div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script src="../../modules/dashborderNav.js"></script>
+</body>
+
+</html>

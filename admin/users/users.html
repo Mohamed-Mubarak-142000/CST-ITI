@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../fontawesome/all.css">
+  <link rel="stylesheet" href="../../bootstrap/bootstrap.css">
+  <title>orders</title>
+  <style>
+    main {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    #sidebar {
+      min-width: 250px;
+      max-width: 250px;
+      background-color: #607d8b;
+      color: #fff;
+      transition: all 0.3s;
+    }
+
+    #sidebar.active {
+      margin-left: -250px;
+    }
+
+    #sidebar .nav-link {
+      color: #fff;
+    }
+
+    #content {
+      max-width: 100%;
+      min-width: calc(100% - 250px);
+      transition: all 0.3s;
+    }
+
+    .show {
+      position: absolute;
+      top: 20px;
+      right: 5px;
+      cursor: pointer;
+    }
+
+    .hide {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: -45px;
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    aside .active {
+      background-color: black;
+      color: gray;
+    }
+
+    .logo {
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    .adminLinks #Logout {
+      margin-top: 8rem;
+
+    }
+
+    .adminLinks #Logout .active {
+      background-color: white;
+      color: black !important;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .adminLinks #Logout .active:hover {
+      background-color: red !important;
+      color: white !important;
+    }
+
+    th,
+    td {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!--  Navbar content -->
+    <aside id="sidebar" class="position-relative">
+      <div class="sidebar-header p-3 mt-4">
+        <a href="../../home/home.html" target="_blank">
+          <img src="../../assets/logo.svg" class="logo" alt="logo">
+        </a>
+        <h3>Dashboard</h3>
+        <button id="menu-toggle-hide" class="btn btn-light show">&#9776;</button>
+        <button id="menu-toggle-show" class="btn btn-dark hide">&#9776;</button>
+      </div>
+      <ul class="nav flex-column adminLinks">
+
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Home" href="../statistics/statistics.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Products" href="../products/products.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75 active" id="Users" href="../users/users.html">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Orders" href="../orders/orders.html">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Offers" href="../offers/offers.html">Offers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Review" href="../review/review.html">Review</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Complains" href="../emails/emials.html">Complains</a>
+        </li>
+        <li class="nav-item" id="Logout">
+          <div class="nav-link  ms-3 rounded-3 w-75 active">
+            <i class="fa-solid fa-right-from-bracket" style="transform: rotate(180deg);"></i>
+            <h5>Logout</h5>
+          </div>
+        </li>
+        <li class="nav-item" id="DeleteMyAccount">
+          <button class="btn btn-danger mt-5 ms-3 rounded-3 w-75">Delete My Account</button>
+        </li>
+      </ul>
+    </aside>
+    <div id="content" class="container">
+      <h1 class="text-center my-5">Users</h1>
+      <!-- form to Add & Edit -->
+      <form class="row g-3 mb-5 needs-validation container mx-auto" novalidate>
+        <div class="col-md-4">
+          <label for="validationFirstName" class="form-label">First name</label>
+          <input type="text" class="form-control" id="validationFirstName" placeholder="Mark" required>
+          <div class="invalid-feedback">
+            Enter first name
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationLastName" class="form-label">Last name</label>
+          <input type="text" class="form-control" id="validationLastName" placeholder="Twain" required>
+          <div class="invalid-feedback">
+            Enter last name
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustomEmail" class="form-label">Email</label>
+          <div class="input-group has-validation">
+            <input type="email" class="form-control" placeholder="Exaple@domin.com" id="validationCustomEmail"
+              aria-describedby="inputGroupPrepend" required>
+            <div class="invalid-feedback">
+              Please choose a valid Email.
+            </div>
+            <!-- <div class="valid-feedback">
+                Looks good!
+              </div> -->
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationPassword" class="form-label">Passwrod</label>
+          <input type="password" minlength=6 maxlength="16" placeholder="Password between 6-16 charachters"
+            class="form-control" id="validationPassword" required>
+          <div class="invalid-feedback">
+            Password must be 8-14 length and include at least one (uppercase,lowercase,number,special character such as
+            !,
+            $, %, &, *, or _)
+          </div>
+
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationRoleChoice" class="form-label">State</label>
+          <select class="form-select" id="validationRoleChoice" required>
+            <option selected disabled value="">Choose the role</option>
+            <option value="seller">Seller</option>
+            <option value="customer">customer</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid role.
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-12">
+          <button class="btn btn-primary w-100" type="submit">Add</button>
+        </div>
+      </form>
+      <!-- table of users -->
+      <div class="table-responsive" id="tableHolder">
+        <table class="table table-borderd">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First</th>
+              <th>Last</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot class="bg-secondary text-white"></tfoot>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>,
+  <script src="../../modules/dashborderNav.js"></script>
+
+
+</body>
+
+</html>

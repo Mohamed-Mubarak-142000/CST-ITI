@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="../../fontawesome/all.css">
+
+  <title>Product Management</title>
+  <style>
+    main {
+      display: flex;
+
+    }
+
+    #sidebar {
+      min-width: 250px;
+      max-width: 250px;
+      background-color: #607d8b;
+      color: #fff;
+      transition: all 0.3s;
+    }
+
+    #sidebar.active {
+      margin-left: -250px;
+    }
+
+    #sidebar .nav-link {
+      color: #fff;
+    }
+
+    #content {
+      min-width: calc(100% - 250px);
+      max-width: 100%;
+      transition: all 0.3s;
+    }
+
+    .show {
+      position: absolute;
+      top: 20px;
+      right: 5px;
+      cursor: pointer;
+    }
+
+    .hide {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: -45px;
+      cursor: pointer;
+    }
+
+    img {
+      width: 50px;
+    }
+
+    aside .active {
+      background-color: black;
+      color: gray;
+    }
+
+    /* //====================================================||\\ */
+    #description,
+    #title {
+      height: 75px;
+      text-overflow: ellipsis;
+      overflow-y: scroll;
+    }
+
+    #categoryFilters {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem !important;
+    }
+
+    #categoryFilters li {
+      cursor: pointer;
+      border-radius: 8px;
+      width: fit-content !important;
+      padding: .25rem 1.5rem;
+    }
+
+    #categoryFilters .active {
+      background-color: #0dcaf0;
+      color: white;
+    }
+
+    #navList {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo {
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    .line-clamp-card,
+    .line-clamp-table,
+    .line-clamp-title {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .line-clamp-table {
+      width: 300px;
+    }
+
+    .line-clamp-title {
+      -webkit-line-clamp: 1;
+    }
+
+    .cardwarrpper {
+      display: none;
+    }
+
+    .adminLinks #Logout {
+      margin-top: 8rem;
+
+    }
+
+    .adminLinks #Logout .active {
+      background-color: white;
+      color: black !important;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .adminLinks #Logout .active:hover {
+      background-color: red !important;
+      color: white !important;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!--  Navbar content -->
+    <aside id="sidebar" class="position-relative">
+      <div class="sidebar-header p-3 mt-4">
+        <a href="../../home/home.html" target="_blank">
+          <img src="../../assets/logo.svg" class="logo" alt="logo">
+        </a>
+
+        <h3>Dashboard</h3>
+        <button id="menu-toggle-hide" class="btn btn-light show">&#9776;</button>
+        <button id="menu-toggle-show" class="btn btn-dark hide">&#9776;</button>
+      </div>
+      <ul class="nav flex-column adminLinks">
+
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Home" href="../statistics/statistics.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75 active" id="Products"
+            href="../products/products.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Users" href="../users/users.html">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Orders" href="../orders/orders.html">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Offers" href="../offers/offers.html">Offers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Review" href="../review/review.html">Review</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mt-2 ms-3 rounded-3 w-75" id="Complains" href="../emails/emials.html">Complains</a>
+        </li>
+        <li class="nav-item" id="Logout">
+          <div class="nav-link  ms-3 rounded-3 w-75 active">
+            <i class="fa-solid fa-right-from-bracket" style="transform: rotate(180deg);"></i>
+            <h5>Logout</h5>
+          </div>
+        </li>
+        <li class="nav-item" id="DeleteMyAccount">
+          <button class="btn btn-danger mt-5 ms-3 rounded-3 w-75">Delete My Account</button>
+        </li>
+      </ul>
+    </aside>
+    <!--  Rest content of page -->
+    <div id="content" class="mx-auto">
+      <h1 class=" text-center my-5">Product Management</h1>
+      <!-- Product Form -->
+      <form id="productForm" class="container mb-4 needs-validation" novalidate>
+        <input type="hidden" id="productId" />
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" required />
+            <div class="invalid-feedback">Please provide a Product Name.</div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="price">Price</label>
+            <input type="number" step="0.01" class="form-control" id="price" required />
+            <div class="invalid-feedback">Please provide a product price.</div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" id="category" required />
+            <div class="invalid-feedback">Please provide a product category.</div>
+          </div>
+          <div class="col-md-12 mb-3">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" required name="" id="description"></textarea>
+            <div class="invalid-feedback">Please provide a product Description.</div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="image">Image URL</label>
+            <input type="url" class="form-control" id="image" required />
+            <div class="invalid-feedback">Please provide a product image URL.</div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="rate">Rating</label>
+            <input type="number" step="0.1" class="form-control" id="rate" required />
+            <div class="invalid-feedback">Please provide a product rating.</div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="count">Count</label>
+            <input type="number" class="form-control" id="count" required />
+            <div class="invalid-feedback">Please provide a product count.</div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="stock">Stock</label>
+            <input type="number" class="form-control" id="stock" required />
+            <div class="invalid-feedback">Please provide a product count.</div>
+          </div>
+          <!-- <div class="col-md-6 mb-3">
+            <label for="sellerID">Seller Email</label>
+            <input type="email" class="form-control" id="sellerID" required />
+            <div class="invalid-feedback">Please provide a seller email.</div>
+          </div> -->
+          <div class=" col-12 mb-3 mt-auto">
+            <button class="btn btn-info text-white w-100" type="submit">Submit</button>
+
+          </div>
+        </div>
+      </form>
+      <!-- Category Filters and view data -->
+      <div class="row align-items-center py-4 container mx-auto">
+        <ul class="col-12 col-md-9 nav nav-pills" id="categoryFilters">
+          <li class="nav-item dropdown-item bg-info text-white">ALL</li>
+        </ul>
+        <select class="col-12 col-md-3 p-2 mt-4 mt-md-0 rounded-3" id="selectView">
+          <option value="table">Table</option>
+          <option value="cards">Cards</option>
+        </select>
+      </div>
+      <!-- Product View in table -->
+      <div class="table-responsive container-sm" id="tableHolder">
+        <table class="table table-bordered container-fluid mx-auto">
+          <thead class="text-center ">
+            <tr>
+              <th>#</th>
+              <th>Image</th>
+              <th>Title</th>
+              <!-- <th>Description</th> -->
+              <th>Price</th>
+              <th>Category</th>
+              <!-- <th>Rating</th> -->
+              <!-- <th>Count</th> -->
+              <th>stock</th>
+              <!-- <th>Seller</th> -->
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="text-center" id="productList"></tbody>
+        </table>
+      </div>
+      <!-- Product View in cards -->
+      <div class="cardwarrpper">
+        <div class="row justify-content-center gap-2 container mx-auto" id="cards-holder">
+
+        </div>
+      </div>
+      <!--Products that will be reviewed  -->
+      <div class="table-responsive my-3" id="reviewing">
+        <hr>
+        <h1 class="text-center my-4">Your Product On Review </h1>
+        <table class="table table-bordered container-fluid mx-auto" id="reviewingTable">
+          <thead class="text-center">
+            <tr>
+              <th>#</th>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>stock</th>
+              <th>Seller</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="reviewingList"></tbody>
+        </table>
+      </div>
+
+    </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script src="../../modules/dashborderNav.js"></script>
+
+
+
+  </script>
+</body>
+
+</html>

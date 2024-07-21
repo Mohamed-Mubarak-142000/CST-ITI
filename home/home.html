@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- font-awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <!-- section header  -->
+    <section class="shadow-lg">
+      <header class="container py-2 border-bottom border-1">
+        <div class="row d-flex align-items-center justify-content-between">
+          <a href="../home/home.html" class="col">
+            <img src="../Assets/logo.svg" alt="" width="150" height="90" />
+          </a>
+
+          <!-- search section  -->
+          <div class="d-none d-md-block col-md-6 position-relative">
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                name="search_product_name"
+                placeholder="search product.."
+              />
+              <label for="floatingInput">Search Product..!</label>
+            </div>
+
+            <div id="contentResultSearch" class="d-none"></div>
+          </div>
+
+          <div
+            id="chCurUser"
+            class="col d-flex gap-4 gap-md-5 px-5 p-lg-3 align-items-center justify-content-end"
+          >
+            <a href="../wishList/wishList-page.html">
+              <span id="wLProducts"><i class="fa-solid fa-heart"></i></span>
+            </a>
+
+            <div>
+              <span
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling"
+                aria-controls="offcanvasScrolling"
+                style="font-size: 20px"
+              >
+                <i class="fa-solid fa-bag-shopping"
+                  ><span id="cartCount"></span
+                ></i>
+
+                <span class="d-none d-md-inline fs-6" id="totalPrice"></span>
+              </span>
+
+              <div
+                class="offcanvas offcanvas-end"
+                data-bs-scroll="true"
+                data-bs-backdrop="false"
+                tabindex="-1"
+                id="offcanvasScrolling"
+                aria-labelledby="offcanvasScrollingLabel"
+              >
+                <div class="offcanvas-header border-bottom">
+                  <h5
+                    class="offcanvas-title fs-3 text-capitalize fw-normal text-center"
+                    id="offcanvasScrollingLabel"
+                  >
+                    <i class="fa-solid fa-bag-shopping"></i> cart
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div id="offCanvasCartBody" class="offcanvas-body h-75"></div>
+
+                <div class="bg-body-secondary">
+                  <div
+                    class="d-flex justify-content-between align-items-center px-4 py-2 text-capitalize border"
+                  >
+                    <h6>subtotal:</h6>
+                    <h6 id="subtitle"></h6>
+                  </div>
+
+                  <div
+                    class="d-flex justify-content-between align-items-center px-4 py-2 text-capitalize border"
+                  >
+                    <h5>total:</h5>
+                    <h4 class="fw-bold" id="totalPriceInCart"></h4>
+                  </div>
+
+                  <a
+                    href="../shopping _cart/shop_cart.html"
+                    class="d-flex w-75 rounded-2 text-black bg-primary-subtle justify-content-center align-items-center p-2 mx-auto my-2 fw-bold text-decoration-none text-capitalize border"
+                  >
+                    Check Out
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col d-flex gap-4 gap-md-5 px-5 p-lg-3 align-items-center justify-content-end"
+            id="btnLogin"
+          ></div>
+        </div>
+      </header>
+
+      <!-- nav section  -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <div
+            id="btn_all_categories"
+            class="navbar-brand text-capitalize position-relative bg-primary-subtle px-5 fw-bold py-2 rounded"
+          >
+            <i class="fas fa-bars"></i> all categories
+            <!-- All Categories Content -->
+            <div id="all_categories" class="d-none"></div>
+          </div>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link fw-bold active"
+                  aria-current="page"
+                  href="../home/home.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link fw-bold"
+                  href="../shop_page/shop_page.html?category=all"
+                  >Shop</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="../about/about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="../conact us/contact.html"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <!-- carousel and offer add section -->
+    <section class="container-fluid px-4 my-4">
+      <div class="row">
+        <div
+          id="carouselExampleSlidesOnly"
+          class="carousel slide col-12 col-lg-8 rounded-2 carousel-fade"
+          data-bs-ride="carousel"
+          style="height: 600px"
+        >
+          <div class="carousel-inner h-100">
+            <div class="carousel-item h-100" data-bs-interval="3000">
+              <img
+                src="../Assets/images_home/brands1 (2).png"
+                class="d-block w-100 h-100 rounded-4"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>
+                  Some representative placeholder content for the second slide.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item h-100" data-bs-interval="3000">
+              <img
+                src="../Assets/images_home/brands1 (1).png"
+                class="d-block w-100 h-100 rounded-4"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>
+                  Some representative placeholder content for the third slide.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item h-100 active" data-bs-interval="1000">
+              <img
+                src="../Assets/images_home/banner1.jpeg"
+                class="d-block w-100 h-100 rounded-4 c"
+                alt="banner1"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>
+                  Some representative placeholder content for the first slide.
+                </p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <div
+          class="py-2 col-12 col-lg-4 my-3 my-lg-0 bg-info-subtle rounded-4 d-flex flex-column justify-content-center text-capitalize align-items-center"
+        >
+          <h2>special offer</h2>
+          <p id="nameOffer" class="text-center"></p>
+
+          <div style="width: 300px; height: 280px">
+            <img id="imageOffer" />
+          </div>
+
+          <div
+            class="d-flex justify-content-center gap-3 align-items-center my-4"
+          >
+            <div
+              class="d-flex flex-column fw-bold fs-5 justify-content-center align-items-center gap-2"
+            >
+              <span id="days">00</span>
+              <span class="fw-normal">days</span>
+            </div>
+
+            <div
+              class="d-flex flex-column fw-bold fs-5 justify-content-center align-items-center gap-2"
+            >
+              <span id="hours">00</span>
+              <span class="fw-normal">hour</span>
+            </div>
+
+            <div
+              class="d-flex flex-column fw-bold fs-5 justify-content-center align-items-center gap-2"
+            >
+              <span id="minutes">00</span>
+              <span class="fw-normal">minute</span>
+            </div>
+
+            <div
+              class="d-flex flex-column fw-bold fs-5 justify-content-center align-items-center gap-2"
+            >
+              <span id="seconds">00</span>
+              <span class="fw-normal">seconds</span>
+            </div>
+          </div>
+
+          <a
+            id="buy-now-link"
+            href="#"
+            class="btn btn-primary rounded-0 w-50 mx-auto py-2 fs-5"
+          >
+            Buy Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- get three of category -->
+    <section class="container my-5">
+      <div class="row g-3" id="all_category"></div>
+    </section>
+
+    <section class="container-fluid" id="show_adder"></section>
+
+    <!-- get all products -->
+    <section class="container my-5">
+      <div class="heading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <h1 class="fs-2 fw-bold">Our Bestsellers</h1>
+      </div>
+      <div class="row g-2" id="all_Products"></div>
+    </section>
+
+    <section class="container-fluid" id="show_adder2"></section>
+    <!-- render product by category  -->
+    <section class="container my-5" id="all_sections">
+      <div class="row g-3" id="fProdByCategory"></div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="container my-5 brands-section">
+      <div class="row g-5 ms-auto">
+        <div class="col col-6 col-lg-4">
+          <img
+            src="../Assets/images_home/brand1.jpg"
+            class="brand-image"
+            alt="Brand 1 Logo"
+          />
+        </div>
+        <div class="col col-6 col-lg-4">
+          <img
+            src="../Assets/images_home/brand2.jpg"
+            class="brand-image"
+            alt="Brand 2 Logo"
+          />
+        </div>
+
+        <div class="col col-6 col-lg-4">
+          <img
+            src="../Assets/images_home/brand6.png"
+            class="brand-image"
+            alt="Brand 2 Logo"
+          />
+        </div>
+        <div class="col col-6 col-lg-4">
+          <img
+            src="../Assets/images_home/brand3.jpg"
+            class="brand-image"
+            alt="Brand 3 Logo"
+          />
+        </div>
+        <div class="col col-6 col-lg-4">
+          <img
+            src="../Assets/images_home/brand5.png"
+            class="brand-image"
+            alt="Brand 5 Logo"
+          />
+        </div>
+        <div class="col col-6 col-lg-4">
+          <img
+            src="../Assets/images_home/brand4.png"
+            class="brand-image"
+            alt="Brand 4 Logo"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Brand Image -->
+        <div class="footer-brand">
+          <img
+            src="../Assets/logo.svg"
+            alt="Brand Logo"
+            class="brand"
+            width="250"
+            height="90"
+          />
+        </div>
+        <!-- Links Section -->
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Social Media Section -->
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://www.twitter.com"
+              target="_blank"
+              aria-label="Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Your Brand. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../bootstrap/bootstrap.css" />
+  <link rel="stylesheet" href="log.css" />
+  <title>Sing up</title>
+</head>
+
+<body>
+  <div class="formContainer d-flex align-items-center flex-column justify-content-center direction-column">
+    <a class="w-50 d-flex align-items-center justify-content-center" href="../home/home.html" target="_blank">
+      <img class="w-100" src="../Assets/logo.svg" alt="" />
+    </a>
+    <form class="row g-3 container needs-validation" novalidate>
+      <span class="NotFounUser d-flex align-items-center justify-content-center visible hiddeElement fs-4 text-danger">
+        <!-- Email or Password incorrect! -->
+      </span>
+      <div class="col-md-6">
+        <label for="validationCustom01" class="form-label">First name</label>
+        <input type="text" class="form-control" id="validationCustom01" required />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please Enter valid name.</div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationCustom02" class="form-label">Last name</label>
+        <input type="text" class="form-control" id="validationCustom02" required />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please Enter valid name.</div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationCustomUsername" class="form-label">Email</label>
+        <div class="input-group has-validation">
+          <input type="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
+            required />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please choose valid Email.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationCustomPassword" class="form-label">Password</label>
+
+        <input placeholder="User Password" minlength="6" maxlength="16" type="password" class="form-control"
+          id="validationCustomPassword" required />
+        <div class="invalid-feedback">
+          Password must be 8-14 length and include at least one (uppercase,lowercase,number,special character such as !,
+          $, %, &, *, or _)
+        </div>
+
+
+      </div>
+      <div class="col-12">
+        <label for="validationCustom04" class="form-label">Role</label>
+        <select class="form-select" id="validationCustom04" required>
+          <option selected disabled value="">Choose Role</option>
+          <option value="seller">Seller</option>
+          <option value="customer">Customer</option>
+        </select>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="invalidCheck" required />
+          <label class="form-check-label" for="invalidCheck">
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback">
+            You must agree before singup.
+          </div>
+        </div>
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn bg-mainColor text-white" type="submit">
+          sing up
+        </button>
+      </div>
+      <div class="col-12 text-center d-flex align-items-center justify-content-center">
+        <span> Already have account ?</span>
+        <button class="btn btn-link haveAcc">Login</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="./singup.js" type="module"></script>
+  <script src="../bootstrap/bootstrap.bundle.js"></script>
+</body>
+
+</html>
